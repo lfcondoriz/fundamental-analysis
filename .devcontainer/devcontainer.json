@@ -1,0 +1,16 @@
+{
+    "name": "Fundamental Analysis LaTeX",
+    "image": "fundamental-analysis-tex",
+    "workspaceFolder": "/work",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/work,type=bind,consistency=cached"
+    ],
+    "extensions": [
+        "James-Yu.latex-workshop"
+    ],
+    "settings": {
+        "latex-workshop.latex.outDir": "out",
+        "latex-workshop.latex.autoBuild.run": "onFileChange",
+        "latex-workshop.latex.clean.enabled": true
+    }
+}
