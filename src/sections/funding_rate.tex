@@ -1,0 +1,107 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/funding_rate/}}}
+
+\begin{document}
+
+\subsection{Funding Rate Arbitrage: Arbitraje de tasas de financiamiento}
+Esta estrategia se basa en capturar el \emph{funding rate} utilizando contratos perpetuos de Binance o Bybit (por ejemplo, BTCUSDT Perpetual) en combinación con Quantfury.
+
+\subsubsection{¿Qué es el Funding Rate?}
+En los futuros perpetuos no existe una fecha de vencimiento. Para mantener el precio del contrato cercano al del mercado spot, los exchanges aplican una tasa de financiamiento, conocida como \emph{funding rate}, que se paga entre traders cada 8 horas, según el desequilibrio entre posiciones largas y cortas:
+
+\begin{itemize}
+    \item Funding rate positivo: los largos pagan a los cortos.
+    \item Funding rate negativo: los cortos pagan a los largos.
+\end{itemize}
+
+\subsubsection{Objetivo}
+El objetivo de la estrategia es capturar el \emph{funding rate} sin asumir riesgo direccional del mercado. Esto se logra mediante una posición \emph{hedgeada}:
+
+\begin{quote}
+Abrir simultáneamente una posición larga en el mercado spot (o un derivado que lo replique) y una posición corta en el contrato perpetuo.
+\end{quote}
+
+\subsubsection{Estadísticas de Bybit}
+La tasa de financiación típica es de $0.01\%$ cada 8 horas (valor estándar), equivalente a $0.03\%$ diario.  
+Suponiendo una tasa constante de $0.01\%$ por sesión, la tasa anual aproximada sería:
+\[
+\text{TasaAnual} = 0.01\% \cdot 3 \cdot 365 \approx 10.95\%
+\]
+
+El promedio histórico desde el lanzamiento de BTCUSDT Futures es:
+\[
+\text{mean} = 0.0138\%
+\]
+Este valor es ligeramente superior al estándar de $0.01\%$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{./images/funding_rate/heatmap_month_year.png}
+    \caption{Heatmap del Funding Rate por mes y año (2020-2025).}
+    \label{fig:heatmap_funding_rate}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{./images/funding_rate/total_year.png}
+    \caption{Porcentaje total de Funding Rate por año.}
+    \label{fig:total_year}
+\end{figure}
+
+\subsubsection{Ejemplo práctico}
+Supongamos un capital total de $2\,000\,\text{USDT}$, distribuido de la siguiente manera:
+
+\begin{itemize}
+    \item $1\,000\,\text{USDT}$ en Quantfury.
+    \item $1\,000\,\text{USDT}$ en Bybit/Binance Futures.
+\end{itemize}
+
+En Quantfury se dispone de un apalancamiento de $20\times$, lo que permite abrir una posición equivalente a $20\,000\,\text{USDT}$. Se utiliza el $40\%$ de este poder de trading ($8\,000\,\text{USDT}$) para la estrategia.  
+
+Los pasos a seguir son:
+
+\begin{itemize}
+    \item Abrir una posición \textbf{LONG} en Quantfury por $8\,000\,\text{USDT}$.
+    \item Abrir una posición \textbf{SHORT} en Bybit/Binance Futures por $8\,000\,\text{USDT}$.
+\end{itemize}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{./images/funding_rate/example_heatmap.png}
+    \caption{Heatmap de ejemplo de la estrategia en ejecución.}
+    \label{fig:example_heatmap}
+\end{figure}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\linewidth]{./images/funding_rate/capital_growth.png}
+    \caption{Evolución del capital invertido en la estrategia.}
+    \label{fig:capital_growth}
+\end{figure}
+
+A continuación se muestran las ganancias anuales según datos históricos:
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|l|r|r|}
+        \hline
+        \textbf{Año} & \textbf{Ganancia (USDT)} & \textbf{\% sobre 2\,000 USDT} \\
+        \hline
+        2020 & 1\,136.38 & 56.82 \\
+        2021 & 3\,063.87 & 153.19 \\
+        2022 & 235.72  & 11.79 \\
+        2023 & 710.63  & 35.53 \\
+        2024 & 961.56  & 48.08 \\
+        2025 & 145.37  & 7.27  \\
+        \hline
+    \end{tabular}
+    \caption{Ganancias anuales de la estrategia de Funding Rate.}
+    \label{tab:funding_rates_percent}
+\end{table}
+
+Por ejemplo, para el año 2024, el porcentaje de ganancia sobre el capital inicial es:
+\[
+\%\,\text{USDT} = \frac{961.56}{2\,000} \cdot 100 \approx 48.08\%
+\]
+
+\end{document}
