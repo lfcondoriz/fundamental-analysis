@@ -1,0 +1,17 @@
+%% ----------------------------
+%% ENCABEZADO Y PIE DE PÁGINA
+%% ----------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Limpia encabezado y pie por defecto
+
+% ENCABEZADO
+\fancyhead[L]{\docauthor}                   % Autor o titulo corto
+\fancyhead[R]{\nouppercase{\leftmark}}     % Nombre de sección (automático, sin mayúsculas)
+
+% LÍNEAS DEL ENCABEZADO/PIE
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% PIE DE PÁGINA
+\fancyfoot[C]{\thepage} % Número de página centrado

@@ -1,0 +1,35 @@
+%% ----------------------------
+%% LÍNEAS DECORATIVAS CON TIKZ
+%% ----------------------------
+\usepackage{tikz}
+\usepackage{xfp}
+
+% Un símbolo decorativo (tipo "cruz" rotada)
+\newcommand{\andreas}[5][1.0]{%
+    \begin{scope}[shift={(#2,#3)},rotate=45,scale=#4,transparency group,opacity=#1]
+        \fill[fill=#5] (0,0) -- (0,1) -- (3,1) -- (3,0);
+        \fill[fill=#5] (1,-1) -- (2,-1) -- (2,2) -- (1,2);
+    \end{scope}
+}
+
+%% Línea decorativa horizontal gruesa
+\newcommand{\andreasline}{%
+    \centering
+    \begin{tikzpicture}
+        \newcommand\numcross{29}
+        \foreach \n in {1,...,\the\numexpr\numcross\relax} {
+            \andreas[\fpeval{0.9*sin((\n + 1)*pi/(\numcross+2))}]{0.5*\n}{0}{0.10}{black}
+        }
+    \end{tikzpicture}
+}
+
+%% Línea decorativa más delgada (slim)
+\newcommand{\andreaslineslim}{%
+    \centering
+    \begin{tikzpicture}[baseline]
+        \newcommand\numcross{74}
+        \foreach \n in {1,...,\the\numexpr\numcross\relax} {
+            \andreas[0.75]{0.2*\n}{0}{0.04}{black}
+        }
+    \end{tikzpicture}
+}
