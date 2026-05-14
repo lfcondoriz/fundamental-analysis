@@ -1,47 +1,84 @@
 # latex-template
-Reusable LaTeX (LuaLaTeX) template for reports and academic documents
+Reusable LaTeX (LuaLaTeX) template for reports and academic documents.
 
-## Docker
+## Docker usage
 
-### Build the Docker image
+This project uses a prebuilt Docker image:
+`maxkratz/texlive:latest`
 
-```bash
-docker compose -f docker/docker-compose.yml build
-```
+No Dockerfile or image build is required.
 
-### Single compilation
+---
+
+## Single compilation
 
 Compile the document once and exit:
 
 ```bash
 docker compose -f docker/docker-compose.yml run --rm latex
+````
+
+The compiled PDF will be generated in:
+
+```
+out/main.pdf
 ```
 
-The compiled PDF will be generated in the `out/` directory as `main.pdf`.
+---
 
-### Continuous compilation (watch mode)
+## Continuous compilation (watch mode)
 
-To keep the container running and recompile automatically whenever `.tex` files change, add the `-pvc` flag to the command:
+Automatically recompile when `.tex` files change:
 
 ```bash
 docker compose -f docker/docker-compose.yml run --rm latex latexmk -pvc main.tex
 ```
 
-Alternatively, start the service in detached mode and view the logs:
+---
+
+## Optional: run in background
+
+Start the container in detached mode:
 
 ```bash
 docker compose -f docker/docker-compose.yml up -d
+```
+
+View logs:
+
+```bash
 docker compose -f docker/docker-compose.yml logs -f
 ```
 
-To stop the service:
+---
+
+## Stop service
 
 ```bash
 docker compose -f docker/docker-compose.yml down
 ```
 
+---
+
+## Project structure
+
+* `src/` → LaTeX source files (main.tex, chapters, settings)
+* `out/` → generated PDF and auxiliary files
+* `docker/docker-compose.yml` → LaTeX execution environment
+
+---
+
 ## Configuration
 
-- LaTeX compilation runs from within the `src/` directory, so all relative paths in your `.tex` files should be relative to `src/`.
-- Compilation settings are defined in `src/latexmkrc` (output directory, PDF mode, interaction mode).
-- The output PDF is always generated in `out/main.pdf`. 
+* Compilation runs from `/work/src`
+* Output is written to `/work/out`
+* Settings are defined in `src/latexmkrc`
+* Entry point: `src/main.tex`
+
+---
+
+## Notes
+
+* The previous Dockerfile is deprecated and no longer used.
+* All compilation is handled via `docker compose` + prebuilt image.
+* No local LaTeX installation is required.

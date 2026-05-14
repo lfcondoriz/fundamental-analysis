@@ -1,6 +1,6 @@
 services:
   latex:
-    build: .
+    image: maxkratz/texlive:latest
     volumes:
       - ..:/work
     working_dir: /work/src
