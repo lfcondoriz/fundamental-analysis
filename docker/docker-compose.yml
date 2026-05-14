@@ -1,0 +1,7 @@
+services:
+  latex:
+    build: .
+    volumes:
+      - ..:/work
+    working_dir: /work/src
+    command: latexmk main.tex

@@ -1,0 +1,21 @@
+%% ----------------------------
+%% COLORES Y FORMATO DE SECCIONES
+%% ----------------------------
+\usepackage{xcolor}      % Definición de colores
+\usepackage{titlesec}    % Personalización de títulos
+
+\definecolor{sectioncolor}{RGB}{0, 51, 102}         % Azul oscuro
+\definecolor{subsectioncolor}{RGB}{0, 102, 102}     % Verde azulado
+\definecolor{subsubsectioncolor}{RGB}{102, 0, 102}  % Púrpura oscuro
+
+\titleformat{\section}
+  {\color{sectioncolor}\normalfont\Large\bfseries}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\color{subsectioncolor}\normalfont\large\bfseries}
+  {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\color{subsubsectioncolor}\normalfont\normalsize\bfseries}
+  {\thesubsubsection}{1em}{}
