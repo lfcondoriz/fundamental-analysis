@@ -29,4 +29,16 @@ Permite escribir \cref{fig:example} y automáticamente pondrá ``Figura 1'' (det
 \subsubsection{csquotes}
 Maneja comillas de forma inteligente según el idioma especificado en babel. Con babel en español, las comillas se adaptan automáticamente: \enquote{así se ve una comilla inteligente}.
 
+\subsubsection{BibLaTeX}
+Sistema moderno de gestión bibliográfica que simplifica las referencias. Es mucho más flexible que BibTeX clásico:
+\begin{itemize}
+    \item Soporta UTF-8 sin problemas
+    \item Fácil de personalizar estilos
+    \item Carga automática de bibliografía desde \texttt{bibliography.bib}
+\end{itemize}
+
+\textbf{Ejemplo de uso:} Para citar una referencia, simplemente usa \texttt{\textbackslash cite\{clave\}}. Por ejemplo, \cite{greenwade93} es una referencia a un artículo sobre CTAN.
+
+La bibliografía completa aparecerá automáticamente al final del documento en la sección \enquote{References}.
+
 \end{document}
