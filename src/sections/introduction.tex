@@ -5,4 +5,28 @@
 \section{Introducción}
 Esta es la sección de introducción. Aquí se presentan los temas principales y los objetivos del documento. También se ofrece una vista general de su estructura y de lo que el lector puede esperar encontrar en las siguientes secciones.
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{image.png}
+    \caption{Figura de ejemplo para ilustrar el uso de gráficos en LaTeX.}
+    \label{fig:example}
+\end{figure}
+
+Prueba de referencias inteligentes con \cref{fig:example}.
+
+\subsection{Mejora Tipográfica y de Referencias}
+
+\subsubsection{microtype}
+Mejora sutil pero notablemente el espaciado y la justificación del texto. Se aplicará automáticamente a todo el documento.
+
+\subsubsection{cleveref}
+Permite escribir \cref{fig:example} y automáticamente pondrá ``Figura 1'' (detectando el tipo de objeto). Ejemplo:
+\begin{itemize}
+    \item \texttt{\textbackslash cref\{fig:example\}} genera: \cref{fig:example}
+    \item \texttt{\textbackslash Cref\{fig:example\}} genera: \Cref{fig:example} (mayúscula inicial)
+\end{itemize}
+
+\subsubsection{csquotes}
+Maneja comillas de forma inteligente según el idioma especificado en babel. Con babel en español, las comillas se adaptan automáticamente: \enquote{así se ve una comilla inteligente}.
+
 \end{document}
