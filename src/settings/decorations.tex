@@ -2,7 +2,6 @@
 %% LÍNEAS DECORATIVAS CON TIKZ
 %% ----------------------------
 \usepackage{tikz}
-\usepackage{xfp}
 
 % Un símbolo decorativo (tipo "cruz" rotada)
 \newcommand{\andreas}[5][1.0]{%
@@ -16,9 +15,13 @@
 \newcommand{\andreasline}{%
     \centering
     \begin{tikzpicture}
-        \newcommand\numcross{29}
-        \foreach \n in {1,...,\the\numexpr\numcross\relax} {
-            \andreas[\fpeval{0.9*sin((\n + 1)*pi/(\numcross+2))}]{0.5*\n}{0}{0.10}{black}
+        \pgfmathsetmacro{\andreasstep}{0.5}
+        \pgfmathsetmacro{\andreaswidth}{\linewidth / 1cm}
+        \pgfmathtruncatemacro{\andreascount}{max(1, floor(\andreaswidth / \andreasstep))}
+        \pgfmathsetmacro{\andreasoffset}{(\andreaswidth - (\andreascount * \andreasstep)) / 2}
+        \foreach \n in {1,...,\andreascount} {
+            \pgfmathsetmacro{\andreasopacity}{0.9 * sin((\n + 1) * 180 / (\andreascount + 2))}
+            \andreas[\andreasopacity]{\andreasoffset + (\n - 0.5) * \andreasstep}{0}{0.10}{black}
         }
     \end{tikzpicture}
 }
@@ -27,9 +30,12 @@
 \newcommand{\andreaslineslim}{%
     \centering
     \begin{tikzpicture}[baseline]
-        \newcommand\numcross{74}
-        \foreach \n in {1,...,\the\numexpr\numcross\relax} {
-            \andreas[0.75]{0.2*\n}{0}{0.04}{black}
+        \pgfmathsetmacro{\andreasstep}{0.20}
+        \pgfmathsetmacro{\andreaswidth}{\linewidth / 1cm}
+        \pgfmathtruncatemacro{\andreascount}{max(1, floor(\andreaswidth / \andreasstep))}
+        \pgfmathsetmacro{\andreasoffset}{(\andreaswidth - (\andreascount * \andreasstep)) / 2}
+        \foreach \n in {1,...,\andreascount} {
+            \andreas[0.75]{\andreasoffset + (\n - 0.5) * \andreasstep}{0}{0.04}{black}
         }
     \end{tikzpicture}
 }
