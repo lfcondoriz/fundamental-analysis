@@ -1,0 +1,9 @@
+services:
+  latex:
+    image: maxkratz/texlive:latest
+    volumes:
+      - ..:/work
+    working_dir: /work/src
+    tty: true
+    stdin_open: true
+    command: sleep infinity
