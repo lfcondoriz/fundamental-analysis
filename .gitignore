@@ -48,6 +48,9 @@ rubber.cache
 # latexrun
 latex.out/
 
+## LaTeX build output
+out/
+
 ## Auxiliary and intermediate files from other packages:
 # algorithms
 *.alg
