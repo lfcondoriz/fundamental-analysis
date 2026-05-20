@@ -1,0 +1,54 @@
+\documentclass[/work/src/main.tex]{subfiles}
+
+\begin{document}
+
+\section{Conclusión}
+
+\subsection{Resumen del Proyecto}
+Este plantilla de LaTeX demuestra cómo estructurar un documento profesional utilizando herramientas modernas:
+
+\begin{itemize}
+    \item \textbf{Dev Containers:} Ambiente reproducible con Docker
+    \item \textbf{Subfiles:} Organización modular del código
+    \item \textbf{LuaLaTeX:} Motor de compilación moderno
+    \item \textbf{BibLaTeX + Biber:} Gestión bibliográfica avanzada
+    \item \textbf{VS Code:} Editor con LaTeX Workshop integrado
+\end{itemize}
+
+\subsection{Ventajas del Enfoque}
+La estructura implementada ofrece varios beneficios:
+
+\subsubsection{Modularidad}
+Cada sección es independiente y puede compilarse por separado. Esto acelera el desarrollo y facilita el trabajo en colaboración.
+
+\subsubsection{Reproducibilidad}
+El uso de Dev Containers garantiza que cualquier persona pueda replicar exactamente el mismo entorno de compilación, eliminando problemas de ``funciona en mi máquina''.
+
+\subsubsection{Profesionalismo}
+La estructura clara y la separación de concerns (configuración, contenido, ejemplos) hacen el proyecto fácil de mantener y extender.
+
+\subsubsection{Automatización}
+Con latexmk configurado correctamente, la compilación es completamente automática y genera PDFs limpios con auxiliares organizados.
+
+\subsection{Próximas Mejoras}
+Algunas extensiones posibles para este proyecto:
+
+\begin{enumerate}
+    \item Añadir más secciones temáticas
+    \item Crear un sistema de comentarios internos (paquete \texttt{todonotes})
+    \item Implementar control de versiones con git
+    \item Publicación automática en GitHub / Overleaf
+    \item Generación de documentación desde el código
+\end{enumerate}
+
+\subsection{Agradecimientos}
+Este proyecto fue construido utilizando tecnologías y paquetes de código abierto. Agradecemos especialmente a:
+
+\begin{itemize}
+    \item \textbf{The LaTeX Project} — por la excelente herramienta de composición
+    \item \textbf{James Yu} — por el paquete LaTeX Workshop
+    \item \textbf{Docker} — por los Dev Containers
+    \item \textbf{La comunidad TeX/LaTeX} — por el soporte y documentación
+\end{itemize}
+
+\end{document}

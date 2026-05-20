@@ -1,0 +1,53 @@
+\documentclass[/work/src/main.tex]{subfiles}
+
+\begin{document}
+
+\section{Contenido Principal}
+
+\subsection{Guía de Estructura}
+Este documento está organizado de forma modular utilizando el paquete \texttt{subfiles}. Cada sección se encuentra en un archivo independiente dentro de la carpeta \texttt{sections/}, permitiendo:
+
+\begin{itemize}
+    \item Compilación independiente de cada sección
+    \item Mejor organización del código
+    \item Facilidad de mantenimiento y edición
+    \item Reutilización de paquetes y configuración
+\end{itemize}
+
+\subsection{Configuración del Proyecto}
+La configuración general del documento se encuentra centralizada en la carpeta \texttt{settings/}, que incluye:
+
+\begin{itemize}
+    \item \textbf{Paquetes:} definición de todos los paquetes LaTeX necesarios
+    \item \textbf{Estilos:} colores, fuentes y diseño visual
+    \item \textbf{Bibliografía:} gestión de referencias bibliográficas
+    \item \textbf{Macros:} comandos personalizados reutilizables
+    \item \textbf{Teoremas:} definición de teoremas, lemas y proposiciones
+    \item \textbf{Metadatos:} información del documento (título, autor, fecha)
+\end{itemize}
+
+\subsection{Mejoras Tipográficas}
+El documento implementa varias mejoras tipográficas automáticas:
+
+\subsubsection{microtype}
+Mejora sutil pero notablemente el espaciado y la justificación del texto mediante ajustes microtipográficos. Se aplica automáticamente a todo el documento sin necesidad de intervención.
+
+\subsubsection{cleveref}
+Permite escribir referencias cruzadas inteligentes. Por ejemplo, \texttt{\textbackslash cref\{etiqueta\}} genera automáticamente ``Figura 1'' o ``Sección 2'' detectando el tipo de objeto.
+
+\subsubsection{csquotes}
+Maneja comillas de forma inteligente según el idioma especificado en Babel. Con babel en español, las comillas se adaptan automáticamente: \enquote{así se ve una comilla inteligente}.
+
+\subsection{Sistema Bibliográfico}
+El documento utiliza \textbf{BibLaTeX} con el backend \texttt{biber}, un sistema moderno de gestión bibliográfica que simplifica las referencias:
+
+\begin{itemize}
+    \item Soporta UTF-8 sin problemas
+    \item Fácil de personalizar estilos
+    \item Carga automática desde \texttt{bibliography.bib}
+    \item Mucho más flexible que BibTeX clásico
+\end{itemize}
+
+Para citar una referencia, simplemente usa \texttt{\textbackslash cite\{clave\}}. Por ejemplo, \cite{greenwade93} es una referencia a un artículo sobre CTAN. La bibliografía completa aparecerá automáticamente al final del documento.
+
+\end{document}
