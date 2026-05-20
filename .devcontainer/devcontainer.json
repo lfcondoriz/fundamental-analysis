@@ -7,6 +7,13 @@
     "vscode": {
       "extensions": ["james-yu.latex-workshop"],
       "settings": {
+        "files.exclude": {
+          "out": true,
+          "**/out": true,
+          "src/out": true,
+          "**/sections/*.pdf": true,
+          "**/sections/*.synctex.gz": true
+        },
         "latex-workshop.latex.outDir": "../out",
         "latex-workshop.latex.autoBuild.run": "onFileChange",
         "latex-workshop.latex.autoBuild.interval": 1000,
