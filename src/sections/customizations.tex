@@ -1,0 +1,104 @@
+\documentclass[/work/src/main.tex]{subfiles}
+
+\begin{document}
+\section{Personalizaciones de la Plantilla}
+\label{sec:personalizaciones}
+
+Esta sección documenta las capacidades que la plantilla incorpora sobre LaTeX estándar.
+
+\subsection{Macros Personalizados}
+\label{sec:macros}
+
+El archivo \texttt{settings/macros.tex} define comandos reutilizables:
+
+\begin{itemize}
+    \item \texttt{\textbackslash marketterm\{texto\}} — marca un término en cursiva: \marketterm{ejemplo de término}.
+\end{itemize}
+
+\subsection{Entornos de Teoremas}
+\label{sec:teoremas}
+
+\emph{Definidos en \texttt{settings/theorems.tex}.}
+
+\begin{theorem}
+    Enunciado de un teorema numerado por sección.
+\end{theorem}
+
+\begin{lemma}
+    Lema auxiliar que apoya la demostración de teoremas.
+\end{lemma}
+
+\begin{proposition}
+    Proposición que puede ser demostrada.
+\end{proposition}
+
+\begin{example}
+    Ejemplo ilustrativo de un concepto.
+\end{example}
+
+\subsection{Referencias Cruzadas Inteligentes}
+\label{sec:cleveref}
+
+El paquete \texttt{cleveref} (configurado en \texttt{settings/links.tex}) genera automáticamente el tipo de referencia. Por ejemplo:
+
+\begin{itemize}
+    \item \texttt{\textbackslash cref\{sec:macros\}} → \cref{sec:macros}
+    \item \texttt{\textbackslash Cref\{sec:teoremas\}} → \Cref{sec:teoremas}
+    \item \texttt{\textbackslash cref\{sec:decoraciones\}} → \cref{sec:decoraciones}
+\end{itemize}
+
+El idioma español se detecta automáticamente desde \texttt{babel}.
+
+\subsection{Comillas Contextuales}
+\label{sec:csquotes}
+
+El paquete \texttt{csquotes} adapta las comillas al idioma del documento:
+
+\begin{quote}
+    \enquote{Esto es una cita con comillas inteligentes.}
+\end{quote}
+
+\subsection{Estilo de Secciones}
+\label{sec:estilo}
+
+\emph{Configurado en \texttt{settings/styles.tex}.}
+
+Los títulos de sección utilizan colores personalizados mediante \texttt{titlesec}:
+
+\begin{itemize}
+    \item \textcolor{sectioncolor}{\textbf{Secciones}} en azul oscuro.
+    \item \textcolor{subsectioncolor}{\textbf{Subsecciones}} en verde azulado.
+    \item \textcolor{subsubsectioncolor}{\textbf{Subsubsecciones}} en púrpura.
+\end{itemize}
+
+\subsection{Encabezado y Pie de Página}
+\label{sec:header}
+
+\emph{Definido en \texttt{settings/header.tex}} mediante \texttt{fancyhdr}:
+
+\begin{itemize}
+    \item Cabecera izquierda: autor del documento.
+    \item Cabecera derecha: nombre de la sección actual.
+    \item Pie centrado: número de página.
+\end{itemize}
+
+\subsection{Líneas Decorativas}
+\label{sec:decoraciones}
+
+\emph{Definidas en \texttt{settings/decorations.tex}} con \texttt{tikz}.
+
+\begin{itemize}
+    \item \texttt{\textbackslash andreasline} — línea decorativa gruesa con opacidad variable.
+    \item \texttt{\textbackslash andreaslineslim} — versión delgada para espacios reducidos.
+\end{itemize}
+
+Ejemplo:
+
+\andreasline
+
+\subsection{Mejoras Tipográficas}
+\label{sec:microtype}
+
+El paquete \texttt{microtype} se aplica automáticamente a todo el documento, mejorando el espaciado entre caracteres y la justificación del texto sin intervención manual.
+
+\end{document}
