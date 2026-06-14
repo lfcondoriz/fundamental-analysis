@@ -8,23 +8,27 @@
       "extensions": ["james-yu.latex-workshop"],
       "settings": {
         "files.exclude": {
-          "out": true,
-          "**/out": true,
-          "src/out": true,
-          "**/sections/*.pdf": true,
-          "**/sections/*.synctex.gz": true
+          "**/*.aux": true,
+          "**/*.bcf": true,
+          "**/*.fdb_latexmk": true,
+          "**/*.fls": true,
+          "**/*.log": true,
+          "**/*.out": true,
+          "**/*.run.xml": true,
+          "**/*.synctex.gz": true
         },
-        "latex-workshop.latex.outDir": "../out",
+        "latex-workshop.latex.outDir": "/work/out",
         "latex-workshop.latex.autoBuild.run": "onFileChange",
         "latex-workshop.latex.autoBuild.interval": 1000,
         "latex-workshop.latex.clean.enabled": true,
-        "latex-workshop.latex.clean.fileTypes": ["*.aux", "*.bbl", "*.blg", "*.fdb_latexmk", "*.fls", "*.idx", "*.ilg", "*.ind", "*.log", "*.out", "*.synctex.gz"],
+        "latex-workshop.latex.clean.fileTypes": ["*.aux", "*.bbl", "*.bcf", "*.blg", "*.fdb_latexmk", "*.fls", "*.idx", "*.ilg", "*.ind", "*.log", "*.out", "*.run.xml", "*.synctex.gz"],
         "latex-workshop.latex.tools": [
           {
             "name": "latexmk (lualatex)",
             "command": "latexmk",
             "args": [
-              "-cd",
+              "-r",
+              "/work/src/latexmkrc",
               "-lualatex",
               "-interaction=nonstopmode",
               "-synctex=1",

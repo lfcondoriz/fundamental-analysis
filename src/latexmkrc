@@ -1,4 +1,4 @@
-$out_dir = '../out';
-$aux_dir = '../out/aux';
+$out_dir = '/work/out';
+$aux_dir = '/work/out/aux';
 $pdf_mode = 4; # lualatex
 $interaction = 'nonstopmode';
